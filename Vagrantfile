@@ -12,7 +12,8 @@ Vagrant.configure(2) do |config|
     SHELL
 
   # add the local user git config to the vm
-  config.vm.provision "file", source: "~/.gitconfig", destination: ".gitconfig"
+  config.vm.synced_folder "C:/Users/ew042834/Desktop/FHIR/smart-on-fhir-tutorial", "/FHIR"
+  # config.vm.provision "file", source: "~/.gitconfig", destination: ".gitconfig"
 
   config.vm.provision "install",
     type: "shell",
