@@ -22,12 +22,22 @@
                       }
                     }
                   });
+        var enc = smart.patient.api.fetchAll({
+                    type: 'Encounter',
+                    query: {
+                      code: {
+                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
+                              'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
+                              'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
+                      }
+                    }
+                  });
+        $.when(pt, obv, enc).fail(onError);
 
-        $.when(pt, obv).fail(onError);
-
-        $.when(pt, obv).done(function(patient, obv) {
-          console.dir(patient)
-          console.dir(obv)
+        $.when(pt, obv, enc).done(function(patient, obv, enc) {
+          console.dir(patient);
+          console.dir(obv);
+          console.log(enc);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
