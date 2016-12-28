@@ -32,12 +32,12 @@
         //           });
         $.when(pt, obv, enc, usr).fail(onError);
 
-        $.when(pt, obv, enc, usr).done(function(patient, obv, enc, usr) {
+        $.when(pt, obv, enc, usr).done(function(patient, obv, enc, user) {
           console.dir(patient);
           console.dir(obv);
           console.log(enc);
           // console.log(prsn);
-          console.log(usr);
+          console.log(user);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
