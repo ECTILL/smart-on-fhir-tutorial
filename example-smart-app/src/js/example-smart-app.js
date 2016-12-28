@@ -22,15 +22,15 @@
                       }
                     }
                   });
-        var enc = smart.patient.api.fetchAll({
-                    type: 'Encounter'
-                  });
-        $.when(pt, obv, enc).fail(onError);
+        // var enc = smart.patient.api.fetchAll({
+        //             type: 'Encounter'
+        //           });
+        $.when(pt, obv).fail(onError);
 
-        $.when(pt, obv, enc).done(function(patient, obv, enc) {
+        $.when(pt, obv).done(function(patient, obv) {
           console.dir(patient);
           console.dir(obv);
-          console.log(enc);
+          // console.log(enc);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
