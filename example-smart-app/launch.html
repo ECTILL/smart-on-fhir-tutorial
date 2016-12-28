@@ -4,16 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
-    <title>[NEW]Example-SMART-App</title>
+    <title>[ECTILL1]Example-SMART-App</title>
   </head>
   <body>
     <script src='./lib/fhir-client.js'></script>
     <script>
       FHIR.oauth2.authorize({
 // f8226466-6c41-4f2d-aaaa-6f773f374bba
-        'client_id': 'f8226466-6c41-4f2d-aaaa-6f773f374bba',
-        // 'client_id': 'e3beade5-9117-41d2-b319-6abdab2d42fe',
-        'scope':  'user/Patient.read user/Person.read patient/Person.read patient/Encounter.read patient/Patient.read patient/Observation.read launch online_access openid profile'
+        // 'client_id': 'f8226466-6c41-4f2d-aaaa-6f773f374bba',
+        'client_id': 'e3beade5-9117-41d2-b319-6abdab2d42fe',
+        // 'scope':  'user/Patient.read user/Person.read patient/Person.read patient/Encounter.read patient/Patient.read patient/Observation.read launch online_access openid profile'
+        'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
       });
     </script>
     <div class="spinner">
