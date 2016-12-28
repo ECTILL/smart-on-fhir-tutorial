@@ -25,12 +25,16 @@
         var enc = smart.patient.api.fetchAll({
                     type: 'Encounter'
                   });
-        $.when(pt, obv, enc).fail(onError);
+        var prsn = smart.patient.api.fetchAll({
+                    type: 'Person'
+                  });
+        $.when(pt, obv, enc, prsn).fail(onError);
 
-        $.when(pt, obv, enc).done(function(patient, obv, enc) {
+        $.when(pt, obv, enc, prsn).done(function(patient, obv, enc, prsn) {
           console.dir(patient);
           console.dir(obv);
           console.log(enc);
+          console.log(prsn);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
