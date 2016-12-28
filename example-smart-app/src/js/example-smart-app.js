@@ -11,8 +11,8 @@
       console.dir(smart)
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
-        var user = smart.user;
-        var usr = user.read();
+        // var user = smart.user;
+        var usr = patient.read();
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
