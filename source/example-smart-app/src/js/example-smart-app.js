@@ -12,7 +12,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var user = smart.user;
-        var usr = user.read();
+        // var usr = user.read();
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -27,12 +27,12 @@
         // var enc = smart.patient.api.fetchAll({
         //             type: 'Encounter'
         //           });
-        $.when(pt, obv, usr).fail(onError);
+        $.when(pt, obv, user).fail(onError);
 
-        $.when(pt, obv, usr).done(function(patient, obv, user) {
+        $.when(pt, obv, user).done(function(patient, obv, user) {
           console.dir(patient);
           console.dir(obv);
-          console.log(user);
+          console.log(user.userId);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
