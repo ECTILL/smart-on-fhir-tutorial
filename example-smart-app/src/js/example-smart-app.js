@@ -10,7 +10,7 @@
     function onReady(smart)  {
       console.dir(smart)
       if (smart.hasOwnProperty('patient')) {
-        smart.userId = "Practitioner/4464007"
+        smart.userId = "User/4464007"
         var patient = smart.patient;
         var user = smart.user;
         var usr = user.read();
