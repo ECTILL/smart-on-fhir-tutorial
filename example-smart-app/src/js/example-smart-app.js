@@ -10,9 +10,10 @@
     function onReady(smart)  {
       console.dir(smart)
       if (smart.hasOwnProperty('patient')) {
+        smart.userId = "Practitioner/4464007"
         var patient = smart.patient;
-        var user = smart.userId;
-        // var usr = user.read();
+        var user = smart.user;
+        var usr = user.read();
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -27,9 +28,9 @@
         // var enc = smart.patient.api.fetchAll({
         //             type: 'Encounter'
         //           });
-        $.when(pt, obv, user).fail(onError);
+        $.when(pt, obv, usr).fail(onError);
 
-        $.when(pt, obv, user).done(function(patient, obv, user) {
+        $.when(pt, obv, usr).done(function(patient, obv, user) {
           console.dir(patient);
           console.dir(obv);
           console.log(user);
